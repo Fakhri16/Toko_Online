@@ -35,13 +35,7 @@ namespace Repository{
       $sql = "INSERT INTO kategori(id,nama) VALUES (?,?)";
 
       $statement = $this->connection->prepare($sql);
-      $sukses = $statement->execute([$kategori->getId(),$kategori->getNama()]);
-      
-      if($sukses){
-        return true;
-      } else {
-        return false;
-      }
+      return $statement->execute([$kategori->getId(),$kategori->getNama()]);
 
     }
 
@@ -91,13 +85,7 @@ namespace Repository{
       $sql = "DELETE FROM kategori WHERE id = ?";
 
       $statement = $this->connection->prepare($sql);
-      $sukses = $statement->execute([$id]);
-
-      if($sukses){
-        return true;
-      } else {
-        return false;
-      }
+      return $statement->execute([$id]);
     }
 
     public function update(string $id,Kategori $kategori): bool{
@@ -106,13 +94,8 @@ namespace Repository{
       
       $statement = $this->connection->prepare($sql);
 
-      $sukses = $statement->execute([$kategori->getId(),$kategori->getNama(),$id]);
+      return $statement->execute([$kategori->getId(),$kategori->getNama(),$id]);
 
-      if($sukses){
-        return true;
-      } else {
-        return false;
-      }
     }
 
   }
