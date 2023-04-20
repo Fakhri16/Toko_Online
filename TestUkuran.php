@@ -15,7 +15,7 @@ $connection = getConnection();
 $repository = new UkuranRepositoryImpl($connection);
 
 // insert
-// $ukuran = new Ukuran("U005","XXLL");
+// $ukuran = new Ukuran("U006","XXLL");
 // $sukses = $repository->insert($ukuran);
 
 // if($sukses){
@@ -33,7 +33,7 @@ $repository = new UkuranRepositoryImpl($connection);
 // var_dump($data);
 
 // delete
-// $ukuran = $repository->delete("U005");
+// $ukuran = $repository->delete("U006");
 // if($ukuran){
 //   echo "Berhasil Menghapus Data";
 // } else{
@@ -41,8 +41,8 @@ $repository = new UkuranRepositoryImpl($connection);
 // }
 
 // Update
-// $ukuran = new Ukuran("U005","XXL");
-// $sukses = $repository->update("U005",$ukuran);
+// $ukuran = new Ukuran("U006","XLL");
+// $sukses = $repository->update($ukuran->getId(),$ukuran);
 // if($sukses){
 //   echo "Sukses mengupdate";
 // } else {
@@ -50,7 +50,7 @@ $repository = new UkuranRepositoryImpl($connection);
 // }
 
 // findNotId 
-// $data = $repository->findNotId("U001");
+// $data = $repository->findNotId("U006");
 // var_dump($data);
 
 
