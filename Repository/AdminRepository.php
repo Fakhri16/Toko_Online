@@ -20,27 +20,20 @@ namespace Repository{
       $this->connection = $connection;
     }
 
-    public function find(Admin $admin): ?Admin{
-
+    public function find(Admin $admin): ?Admin {
       $sql = "SELECT * FROM admin WHERE username = ?";
-
       $statement = $this->connection->prepare($sql);
       $statement->execute([$admin->getUsername()]);
       
-      $rowcount = $statement->rowCount();
-
-      if($rowcount > 0){
-        if($row = $statement->fetch()){
-          if(password_verify($admin->getPassword(),$row['password'])){
-            return new Admin(username: $row['username'],password:$row['password']);
-         }  else {
-          return null;
-         }
+      if ($row = $statement->fetch()) {
+        if (password_verify($admin->getPassword(), $row['password'])) {
+          return new Admin(username: $row['username'], password: $row['password']);
         }
-      } else {
-        return null;
       }
+      
+      return null;
     }
+    
   }
 }
 
