@@ -14,14 +14,45 @@ $connection = getConnection();
 
 $repository = new KategoriRepositoryImpl($connection);
 
-$kategori = new Kategori("P001","Baju Pria");
-$sukses = $repository->insert($kategori);
+// insert
+// $kategori = new Kategori("P003","Hoodie Pria");
+// $sukses = $repository->insert($kategori);
 
-if($sukses){
-  echo "Berhasil Menambah data";
-} else {
-  echo "Gagal";
-}
+// if($sukses){
+//   echo "Berhasil Menambah data";
+// } else {
+//   echo "Gagal";
+// }
+
+//findById
+// $kategoriById = $repository->findById("P001");
+// var_dump($kategoriById);
+
+//findAll
+// $data = $repository->findAll();
+// var_dump($data);
+
+// delete
+// $kategori = $repository->delete("P001");
+// if($kategori){
+//   echo "Berhasil Menghapus Data";
+// } else{
+//   echo "Gagal Menghapus Data";
+// }
+
+// Update
+// $kategori = new Kategori("P001","Baju Wanita");
+// $sukses = $repository->update("P001",$kategori);
+// if($sukses){
+//   echo "Sukses mengupdate";
+// } else {
+//   echo "Gagal update";
+// }
+
+// findNotId 
+// $data = $repository->findNotId("P003");
+// var_dump($data);
+
 
 $connection = null;
 
