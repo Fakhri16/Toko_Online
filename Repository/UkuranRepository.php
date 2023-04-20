@@ -35,13 +35,8 @@ namespace Repository{
       $sql = "INSERT INTO ukuran(id,nama) VALUES (?,?)";
 
       $statement = $this->connection->prepare($sql);
-      $sukses = $statement->execute([$ukuran->getId(),$ukuran->getNama()]);
       
-      if($sukses){
-        return true;
-      } else {
-        return false;
-      }
+      return $statement->execute([$ukuran->getId(),$ukuran->getNama()]);
 
     }
 
@@ -91,13 +86,8 @@ namespace Repository{
       $sql = "DELETE FROM ukuran WHERE id = ?";
 
       $statement = $this->connection->prepare($sql);
-      $sukses = $statement->execute([$id]);
-
-      if($sukses){
-        return true;
-      } else {
-        return false;
-      }
+      
+      return $statement->execute([$id]);
     }
 
     public function update(string $id,Ukuran $ukuran): bool{
@@ -106,13 +96,7 @@ namespace Repository{
       
       $statement = $this->connection->prepare($sql);
 
-      $sukses = $statement->execute([$ukuran->getId(),$ukuran->getNama(),$id]);
-
-      if($sukses){
-        return true;
-      } else {
-        return false;
-      }
+      return $statement->execute([$ukuran->getId(),$ukuran->getNama(),$id]);
     }
 
   }
